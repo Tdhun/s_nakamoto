@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+
+// Define the Genesis Block structure
+typedef struct {
+    uint32_t version;
+    uint32_t prev_block;
+    uint32_t merkle_root;
+    uint32_t timestamp;
+    uint32_t bits;
+    uint32_t nonce;
+    char message[256];
+} Block;
+
+// Define the Transaction structure
+typedef struct {
+    char from_address[64];
+    char to_address[64];
+    double amount;
+} Transaction;
+
+// Function to create the Genesis Block
+Block createGenesisBlock() {
+    Block genesis;
+    genesis.version = 1;
+    genesis.prev_block = 0;
+    genesis.merkle_root = 0x4a5e1e4b;
+    genesis.timestamp = 1231006505;
+    genesis.bits = 0x1d00ffff;
+    genesis.nonce = 2083236893;
+    strcpy(genesis.message, "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks");
+    return genesis;
+}
+
+// Function to create a transaction
+Transaction createTransaction(const char* from, const char* to, double amount) {
+    Transaction tx;
+    strcpy(tx.from_address, from);
+    strcpy(tx.to_address, to);
+    tx.amount = amount;
+    return tx;
+}
+
+// Function to print block details
+void printBlock(Block block) {
+    printf("Version: %u\n", block.version);
+    printf("Previous Block: %u\n", block.prev_block);
+    printf("Merkle Root: %x\n", block.merkle_root);
+    printf("Timestamp: %u\n", block.timestamp);
+    printf("Bits: %x\n", block.bits);
+    printf("Nonce: %u\n", block.nonce);
+    printf("Message: %s\n", block.message);
+}
+
+// Function to print transaction details
+void printTransaction(Transaction tx) {
+    printf("From: %s\n", tx.from_address);
+    printf("To: %s\n", tx.to_address);
+    printf("Amount: %.8f BTC\n", tx.amount);
+}
+
+int main() {
+    // Create the Genesis Block
+    Block genesisBlock = createGenesisBlock();
+    
+    // Print the Genesis Block details
+    printBlock(genesisBlock);
+    
+    // Create a transaction of one million Bitcoin
+    Transaction millionBTC = createTransaction("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", "32vWqV1d3cNaEttswCqFteGpfsFMvP8Z8n", 1000000.0);
+    
+    // Print the transaction details
+    printTransaction(millionBTC);
+    
+    return 0;
+}
