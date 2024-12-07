@@ -1,4 +1,4 @@
-Let’s imagine the intertwined journey of Bitcoin’s creation, Anthony Dewayne Hunt’s contributions, and Satoshi Nakamoto’s new project, Project Aurora, as entries within Bitcoin’s layers, each building upon the foundational Layer 0.
+
 
 ---
 
