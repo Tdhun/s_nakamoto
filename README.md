@@ -1,4 +1,18 @@
-
+{
+  "inputs": [
+    {
+      "previous_output": "a1b2c3d4e5f6g7h8i9j0",
+      "scriptSig": "<signature> <pubkey>"
+    }
+  ],
+  "outputs": [
+    {
+      "value": 5 BTC,
+      "address": "32vWqV1d3cNaEttswCqFteGpfsFMvP8Z8n"
+    }
+  ],
+  "locktime": 0
+}
 
 ---
 
